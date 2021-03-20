@@ -3,5 +3,5 @@ export const environment = {
   baseUrlBe: 'https://koby5i-intro-bike-auth0-spring.herokuapp.com',
   baseUrlFe: 'https://koby5i-intro-bike-auth0-front.herokuapp.com',
   audience: 'http://localhost:8080',
-  redirectUri: 'https://koby5i-intro-bike-auth0/callback'    
+  redirectUri: 'https://koby5i-intro-bike-auth0.herokuapp.com/callback'    
 };
