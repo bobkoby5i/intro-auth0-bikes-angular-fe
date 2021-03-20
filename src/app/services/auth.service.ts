@@ -26,6 +26,7 @@ export class AuthService {
   constructor(public router: Router) {}
 
   public login(): void {
+    console.log('calling auth0.authorize()..');
     this.auth0.authorize();
   }
 
@@ -67,6 +68,11 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
+    if (localStorage.getItem('id_token') === 'null') {
+      console.log('no token in local storage');
+      return false; 
+    }
+    console.log('token found in local storage');
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
   }
