@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   baseUrlBe: 'http://localhost:8080/',
-  baseUrlFe: 'http://localhost:4200/'
+  baseUrlFe: 'http://localhost:4200/',
+  audience: 'http://localhost:8080',
+  redirectUri: 'http://localhost:4200/callback'  
 };
 
 /*
@@ -16,3 +18,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+

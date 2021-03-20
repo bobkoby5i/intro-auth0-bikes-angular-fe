@@ -10,12 +10,15 @@ export class AuthService {
   _baseUrlBe = environment.baseUrlBe;
   _baseUrlFe = environment.baseUrlFe;  
 
+  _audience = environment.audience;
+  _redirectUri = environment.redirectUri;    
+
   auth0 = new auth0.WebAuth({
     clientID: '0BMucSVYliQzvOPesG5UBRSysSddzuOa',
     domain: 'koby5i.eu.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://localhost:8080',
-    redirectUri: 'http://localhost:4200/callback',
+    audience: this._audience ,
+    redirectUri: this._redirectUri ,
     scope: 'openid view:registration view:registrations'
   });
 
@@ -26,8 +29,10 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
-    console.log('baseUrlBe' + this._baseUrlBe);
-    console.log('baseUrlFe' + this._baseUrlFe);
+    console.log('baseUrlBe   = ' + this._baseUrlBe);
+    console.log('baseUrlFe   = ' + this._baseUrlFe);
+    console.log('audience    = ' + this._audience);
+    console.log('redirectUri = ' + this._redirectUri);    
 
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
