@@ -30,9 +30,9 @@ app.use('/server', proxy(PROXY_URL));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-  //res.sendFile(path.join(__dirname, 'dist/bike-ui/index.html'));
-  //res.sendFile('index.html', {root: './dist/bike-ui'});
+  res.sendFile(path.join(__dirname, 'dist/index.html'));           // works
+  //res.sendFile(path.join(__dirname, 'dist/bike-ui/index.html')); // does not work
+  //res.sendFile('index.html', {root: './dist/bike-ui'});          // does not work
 });
 
 /**
