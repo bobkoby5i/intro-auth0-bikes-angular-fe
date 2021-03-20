@@ -19,7 +19,8 @@ export class AuthService {
     responseType: 'token id_token',
     audience: this._audience ,
     redirectUri: this._redirectUri ,
-    scope: 'openid view:registration view:registrations'
+    scope: 'openid view:registration view:registrations',
+    prompt: 'login' // force login
   });
 
   constructor(public router: Router) {}
