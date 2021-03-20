@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs';
 import * as auth0 from 'auth0-js';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
+
+  _baseUrlBe = environment.baseUrlBe;
+  _baseUrlFe = environment.baseUrlFe;  
 
   auth0 = new auth0.WebAuth({
     clientID: '0BMucSVYliQzvOPesG5UBRSysSddzuOa',
@@ -22,6 +26,9 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
+    console.log('baseUrlBe' + this._baseUrlBe);
+    console.log('baseUrlFe' + this._baseUrlFe);
+
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
