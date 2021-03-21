@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BikeService } from '../../services/bike.service'
+import { BikeService } from '../../services/bike.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -20,12 +20,11 @@ export class AdminComponent implements OnInit {
     this.getBikes();
   }
 
-  getBikes(){
-    
+  getBikes(): void{
     this.bikeService.getBikes().subscribe(
-      data => { this.bikes = data },
-      err => console.error(err),
-      ()=> console.log('bikes load')
+      (      data: any) => { this.bikes = data; },
+      (      err: any) => console.error(err),
+      () => console.log('bikes load')
     );
   }
 

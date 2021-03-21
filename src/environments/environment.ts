@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   audience: 'http://localhost:8080',
-  redirectUri: 'http://localhost:4200/callback'  
+  redirectUri: 'http://localhost:4200/callback'
 };
 
 /*

@@ -9,15 +9,15 @@ export class AuthService {
 
 
 
-  _audience = environment.audience;
-  _redirectUri = environment.redirectUri;    
+  audience = environment.audience;
+  redirectUri = environment.redirectUri;
 
   auth0 = new auth0.WebAuth({
     clientID: '0BMucSVYliQzvOPesG5UBRSysSddzuOa',
     domain: 'koby5i.eu.auth0.com',
     responseType: 'token id_token',
-    audience: this._audience ,
-    redirectUri: this._redirectUri ,
+    audience: this.audience ,
+    redirectUri: this.redirectUri ,
     scope: 'openid view:registration view:registrations',
     prompt: 'login' // force login
   });
@@ -31,8 +31,8 @@ export class AuthService {
 
   public handleAuthentication(): void {
 
-    console.log('audience    = ' + this._audience);
-    console.log('redirectUri = ' + this._redirectUri);    
+    console.log('audience    = ' + this.audience);
+    console.log('redirectUri = ' + this.redirectUri);
 
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
@@ -68,7 +68,7 @@ export class AuthService {
     // access token's expiry time
     if (localStorage.getItem('id_token') === 'null') {
       console.log('no token in local storage');
-      return false; 
+      return false;
     }
     console.log('token found in local storage');
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
