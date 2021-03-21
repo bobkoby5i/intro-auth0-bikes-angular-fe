@@ -7,8 +7,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthService {
 
-  _baseUrlBe = environment.baseUrlBe;
-  _baseUrlFe = environment.baseUrlFe;  
+
 
   _audience = environment.audience;
   _redirectUri = environment.redirectUri;    
@@ -31,8 +30,7 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
-    console.log('baseUrlBe   = ' + this._baseUrlBe);
-    console.log('baseUrlFe   = ' + this._baseUrlFe);
+
     console.log('audience    = ' + this._audience);
     console.log('redirectUri = ' + this._redirectUri);    
 

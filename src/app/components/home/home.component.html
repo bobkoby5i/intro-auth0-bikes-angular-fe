@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="row">
+    <a class="btn btn=primary" routerLink="/admin">Admin</a>
+  </div>  
     <form [formGroup]="bikeform" (ngSubmit)="submitRegistration()" novalidate>
       <div *ngIf="validMessage != ''">
         <h3 class="has-info">{{validMessage}}</h3>

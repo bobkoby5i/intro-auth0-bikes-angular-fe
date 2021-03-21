@@ -11,8 +11,7 @@ export class AdminComponent implements OnInit {
 
   public bikes: any;
 
-  _baseUrlBe = environment.baseUrlBe;
-  _baseUrlFe = environment.baseUrlFe;  
+
 
 
   constructor(private bikeService: BikeService) { }
@@ -22,8 +21,7 @@ export class AdminComponent implements OnInit {
   }
 
   getBikes(){
-    console.log('baseUrlBe' + this._baseUrlBe);
-    console.log('baseUrlFe' + this._baseUrlFe);        
+    
     this.bikeService.getBikes().subscribe(
       data => { this.bikes = data },
       err => console.error(err),
